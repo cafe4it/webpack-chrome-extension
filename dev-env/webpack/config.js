@@ -39,7 +39,7 @@ function configGenerator(Manifest) {
     ///// Lowlevel config
     cache: isDevelopment,
     debug: isDevelopment,
-    devtool: isDevelopment ? 'cheap-module-eval-source-map' : '',
+    devtool: isDevelopment ? 'source-map' : '',
     context: __dirname,
     node: {__dirname: true},
 
@@ -58,7 +58,7 @@ function configGenerator(Manifest) {
 
       if(isDevelopment) {
         output.chunkFilename = '[name]-[chunkhash].js'
-        output.publicPath = 'https://localhost:3001/'
+        output.publicPath = 'https://localhost:5000/'
       }
 
       return output

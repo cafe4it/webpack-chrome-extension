@@ -20,7 +20,7 @@ function reqListener () {
 
 var request = new XMLHttpRequest();
 request.onload = reqListener;
-request.open("get", "https://localhost:3001/${scriptName}", true);
+request.open("get", "https://localhost:5000/${scriptName}", true);
 request.send();`
   )
 }
