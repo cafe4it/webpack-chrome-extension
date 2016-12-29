@@ -14,24 +14,20 @@
     "chrome-extension",
     "babel",
     "webpack",
-    "react",
-    "reactjs",
+    "choo",
     "boilerplate",
     "hot",
     "reload",
     "hmr"
   ],
   "dependencies": {
-    "choo": "^4.0.3",
-    "react": "0.14.7"
+    "choo": "^4.0.3"
   },
   "devDependencies": {
     "babel-cli": "6.4.5",
     "babel-core": "6.4.5",
     "babel-loader": "6.2.1",
     "babel-preset-es2015": "6.3.13",
-    "babel-preset-react": "6.3.13",
-    "babel-preset-react-hmre": "1.0.1",
     "chokidar": "1.4.2",
     "cli-color": "1.1.0",
     "css-loader": "0.23.1",
