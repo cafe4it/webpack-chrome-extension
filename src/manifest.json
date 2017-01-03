@@ -1,6 +1,5 @@
 {
   "manifest_version": 2,
-  "homepage_url": "http://extensions.space",
   "default_locale": "en",
   "content_scripts": [
     {
@@ -8,39 +7,38 @@
         "<all_urls>"
       ],
       "js": [
-        "shared/worker_proxy.js",
         "content/index.js"
       ]
     }
   ],
   "background": {
-    "persistent": true,
     "scripts": [
-      "shared/worker_proxy.js",
       "background/index.js"
     ]
   },
-  "page_action": {
+  "browser_action": {
     "default_title": "__MSG_extName__",
-    "default_popup": "popup/index.html"
+    "default_popup": "popup/index.html",
+    "default_icon": {
+      "19": "$assets/webpack-19.png",
+      "38": "$assets/webpack-38.png"
+    }
   },
-  "chrome_url_overrides": {
-    "newtab": "newtab/index.html"
+  "options_ui": {
+    "page": "options/index.html"
   },
-  "options_page": "options/index.html",
   "permissions": [
     "https://www.google-analytics.com/*",
-    "background",
     "tabs"
   ],
   "web_accessible_resources": [
-    "shared/worker_proxy.html",
-    "shared/worker.js",
     "shared/google-analytics-bundle.js"
   ],
   "icons": {
     "16": "icons/webpack-16.png",
     "32": "icons/webpack-32.png",
+    "19": "icons/webpack-19.png",
+    "38": "icons/webpack-38.png",
     "128": "icons/webpack-128.png"
   }
 }

@@ -22,7 +22,7 @@
 
  })(document.head || document.getElementsByTagName("head")[0]);
 
- importScript(chrome.runtime.getURL('shared/google-analytics-bundle.js'), function () {
+ importScript(browser.runtime.getURL('shared/google-analytics-bundle.js'), function () {
  console.info('google analytics platform loaded...');
  service = analytics.getService('instagram_easy_downloader');
  tracker = service.getTracker(_AnalyticsCode);

@@ -1,10 +1,10 @@
 {
   "extName" : {
-    "message" : "Chrome Extension",
+    "message" : "Firefox WebExtension",
     "description" : "Extension name"
   },
   "extDescription" : {
-    "message" : "Extension for Chrome browser...",
+    "message" : "Extension for Firefox browser...",
     "description" : "Extension description"
   }
 }

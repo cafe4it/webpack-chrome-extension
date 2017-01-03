@@ -9,13 +9,13 @@ const process = function ({page, buildPath, scripts}) {
 }
 
 export default function (manifest, {buildPath}) {
-    const {options_page} = manifest;
+    const {options_ui} = manifest;
 
-    if (!options_page) return;
+    if (!options_ui) return;
 
     const scripts = []
 
-    process({page: options_page, buildPath, scripts});
+    process({page: options_ui.page, buildPath, scripts});
 
     return {scripts};
 }

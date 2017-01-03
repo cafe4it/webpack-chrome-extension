@@ -19,7 +19,7 @@ module.exports = {
 		init(send, done){
 			setInterval(function () {
 				send('updateData', done)
-			}, 1000)
+			}, 1000);
 		}
 	}
 }

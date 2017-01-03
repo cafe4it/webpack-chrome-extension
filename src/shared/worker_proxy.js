@@ -47,13 +47,13 @@
 /* globals chrome, console, crypto, ErrorEvent */
 (function() {
     'use strict';
-    var EXTENSION_ORIGIN = 'chrome-extension://' + chrome.runtime.id;
+    var EXTENSION_ORIGIN = 'chrome-extension://' + browser.runtime.id;
     var MSG_GET_TOKEN = 'worker_proxy wants to get communication token';
 
     if (location.origin == EXTENSION_ORIGIN) {
-        if (chrome.extension.getBackgroundPage &&
-            chrome.extension.getBackgroundPage() === window) {
-            chrome.runtime.onMessage.addListener(backgroundPageMessageHandler);
+        if (browser.extension.getBackgroundPage &&
+            browser.extension.getBackgroundPage() === window) {
+            browser.runtime.onMessage.addListener(backgroundPageMessageHandler);
         } else {
             window.addEventListener('message', extensionProxyMessageHandler);
         }
@@ -134,7 +134,7 @@
         if (!event.data || !event.data.channel_token) {
             return;
         }
-        chrome.runtime.sendMessage(MSG_GET_TOKEN, function(token) {
+        browser.runtime.sendMessage(MSG_GET_TOKEN, function(token) {
             if (!token || event.data.channel_token !== token) {
                 console.error('Auth failed, refused to create Worker channel.');
                 return;
@@ -159,7 +159,7 @@
         if (!proxyFrame) {
             loadFrameAndFlush();
         } else if (proxyFrameReady) {
-            chrome.runtime.sendMessage(MSG_GET_TOKEN, function(token) {
+            browser.runtime.sendMessage(MSG_GET_TOKEN, function(token) {
                 if (typeof token != 'string') {
                     // This message is different from the message below, because
                     // failure to get a message for the first time is probably
@@ -168,7 +168,7 @@
                     // the following happened:
                     // 1. The extension runtime was reloaded (e.g. by an update,
                     //    or by pressing Ctrl + R at chrome://extensions, or
-                    //    by calling chrome.runtime.reload()) (most likely).
+                    //    by calling browser.runtime.reload()) (most likely).
                     // 2. The extension developer messed with the message
                     //    handling and the first message only succeeded by
                     //    coincidence.
@@ -185,7 +185,7 @@
         function loadFrameAndFlush() {
             proxyFrameReady = false;
             proxyFrame = document.createElement('iframe');
-            proxyFrame.src = chrome.runtime.getURL('shared/worker_proxy.html');
+            proxyFrame.src = browser.runtime.getURL('shared/worker_proxy.html');
             proxyFrame.style.cssText = 'position:fixed!important;' +
                                        'top:-99px!important;' +
                                        'left:-99px!important;' +
@@ -193,7 +193,7 @@
                                        'height:2px!important;' +
                                        'border:0!important';
             proxyFrame.onload = function() {
-                chrome.runtime.sendMessage(MSG_GET_TOKEN, function(token) {
+                browser.runtime.sendMessage(MSG_GET_TOKEN, function(token) {
                     if (typeof token != 'string') {
                         console.warn(
                             'Refused to initialize Web Worker because a ' +
