@@ -149,7 +149,7 @@ function configGenerator(Manifest) {
       // NOTE Aliasing
       // If you want to override some path with another. Good for importing same version of React across different libraries
       alias: {
-        // "react$": require.resolve(path.join(__dirname, '../../node_modules/react'))
+	      vue: 'vue/dist/vue.js'
       }
     },
 
@@ -177,7 +177,11 @@ function configGenerator(Manifest) {
             test: /\.(ttf|eot)/,
             loader: "url-loader?limit=1000000?name=[name]-[hash].[ext]",
             exclude: /node_modules/
-          }
+          },
+	        {
+		        test: /\.vue$/,
+		        loader: 'vue-loader'
+	        }
         ])
 
         // Styles
