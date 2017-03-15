@@ -25,7 +25,8 @@
     "react": "^0.14.7",
     "rsvp": "^3.3.3",
     "vue": "^2.1.10",
-    "vue-router": "^2.2.1"
+    "vue-router": "^2.2.1",
+    "p-throttle": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "6.4.5",
