@@ -12,4 +12,6 @@ export const build = process.env.NODE_ENV == "development"
                       ? path.normalize(path.join(root, "build"))
                       : path.normalize(path.join(release, "build"))
 
-export const manifest = path.normalize(path.join(src, "manifest.json"))
+export const manifest = process.env.NODE_ENV == "development"
+    ? path.normalize(path.join(src, "manifest.json"))
+    : path.normalize(path.join(src, "manifest.prod.json"))

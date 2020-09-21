@@ -13,7 +13,7 @@ export default function(manifest, {buildPath}) {
   // Process background scripts
   if(background.scripts) {
     background.scripts.forEach((scriptPath) => {
-      script(scriptPath, buildPath)
+      script(scriptPath, buildPath, true)
       scripts.push(scriptPath)
     })
   }

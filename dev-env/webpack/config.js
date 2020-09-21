@@ -1,7 +1,8 @@
+import BabiliPlugin from 'babili-webpack-plugin';
 import path from "path"
 import { execSync } from "child_process";
 import webpack from 'webpack';
-import BabiliPlugin from 'babili-webpack-plugin';
+
 import * as paths from '../paths'
 import ManifestPlugin from '../manifest/plugin'
 
@@ -56,7 +57,7 @@ function configGenerator(Manifest) {
 
       if(isDevelopment) {
         output.chunkFilename = '[name]-[chunkhash].js'
-        output.publicPath = 'https://localhost:3001/'
+        output.publicPath = 'https://localhost:5001/'
       }
 
       return output
@@ -92,7 +93,7 @@ function configGenerator(Manifest) {
       } else {
         // Production plugins for optimizing code
         plugins = plugins.concat([
-          new BabiliPlugin(),
+            new BabiliPlugin(),
           new webpack.optimize.DedupePlugin(),
           // new webpack.optimize.LimitChunkCountPlugin({maxChunks: 15}),
           // new webpack.optimize.MinChunkSizePlugin({minChunkSize: 10000}),
